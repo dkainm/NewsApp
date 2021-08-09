@@ -7,7 +7,7 @@ target 'NewsApp' do
 
   # Pods for NewsApp
 
-	pod 'Realm'
+	pod 'RealmSwift'
 	pod 'Alamofire'
 	pod 'SVProgressHUD'
 

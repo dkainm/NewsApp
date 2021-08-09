@@ -3,24 +3,28 @@ PODS:
   - Realm (10.12.0):
     - Realm/Headers (= 10.12.0)
   - Realm/Headers (10.12.0)
+  - RealmSwift (10.12.0):
+    - Realm (= 10.12.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
-  - Realm
+  - RealmSwift
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Realm
+    - RealmSwift
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Realm: 32488213acb44660539c619d620cec1bac046166
+  RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e3aae0876ee948ff9f68f41d87b3dfd25ac540d2
+PODFILE CHECKSUM: 8e8f2895303a16f749abdf8768994589430e5c13
 
 COCOAPODS: 1.10.0

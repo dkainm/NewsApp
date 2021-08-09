@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C0D786E3-1DD1-4D8E-B2CC-A50F5E194659"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CC972D6-F92E-4118-8692-ED0C7C03A08B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/helpers/Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "setDownloadedImage(from:contentMode:complition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C190E5D-4F8C-4ECD-97E6-DB29E1F8B835"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NewsApp/helpers/Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "setDownloadedImage(from:contentMode:complition:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6C190E5D-4F8C-4ECD-97E6-DB29E1F8B835 - d3bccd6b986a9f20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__C.UIImageView.setDownloadedImage(from: Swift.String, contentMode: __C.UIViewContentMode, complition: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alex%20Rudoi/Documents/MAC%20DOCS/Programming/iOS/NewsApp/NewsApp/helpers/Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "451">
+               </Location>
+               <Location
+                  uuid = "6C190E5D-4F8C-4ECD-97E6-DB29E1F8B835 - 6357eeb65534e639"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in __C.UIImageView.setDownloadedImage(from: Swift.String, contentMode: __C.UIViewContentMode, complition: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "NewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alex%20Rudoi/Documents/MAC%20DOCS/Programming/iOS/NewsApp/NewsApp/helpers/Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

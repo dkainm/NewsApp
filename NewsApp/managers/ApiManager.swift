@@ -50,19 +50,15 @@ class ApiManager {
         let manager = AF
         manager.session.configuration.timeoutIntervalForRequest = 120
         
-        SVProgressHUD.show()
-        
         let request = manager.request(url, method: .get, parameters: params)
         request.responseDecodable(of: ArticlesResponce.self) { responce in
             switch responce.result {
             case .success(let value):
                 DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
                     complition(value.articles)
                 }
             case .failure(let err):
                 DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
                     print(err)
                     presentAlert(title: "Error", message: "\(err.localizedDescription)")
                 }

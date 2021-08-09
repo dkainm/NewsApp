@@ -14,23 +14,39 @@ class ArticlesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "article")
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        fetchData()
+    }
+    
+    private func fetchData() {
         ApiManager.shared.getArticles(keyword: "Apple", sources: nil, country: nil, category: nil) { [weak self] result in
             self?.articles = result
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
+                self?.tableView.refreshControl?.endRefreshing()
             }
         }
+    }
+    
+    //MARK: – Refresh Control
+    
+    @objc func refresh(_ sender: Any) {
+        fetchData()
     }
     
     //MARK: – TableView Delegate & Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return (articles.count == 0) ? 8 : articles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "article", for: indexPath) as! ArticleTableViewCell
-        cell.configure(article: articles[indexPath.row])
+        var article: Any = ""
+        if articles.count - 1 > indexPath.row {
+            article = articles[indexPath.row]
+        }
+        cell.configure(article: article)
         return cell
     }
     

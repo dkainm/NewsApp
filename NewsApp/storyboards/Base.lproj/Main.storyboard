@@ -51,6 +51,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="9Ei-rf-aSC"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="PbC-JH-8zk">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpI-b9-gTj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

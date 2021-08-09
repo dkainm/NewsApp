@@ -41,6 +41,13 @@ class ArticlesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let articleView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleWebViewController") as! ArticleWebViewController
+        articleView.title = articles[indexPath.row].source.name
+        articleView.urlString = articles[indexPath.row].url
+        navigationController?.pushViewController(articleView, animated: true)
+    }
 
 }
 

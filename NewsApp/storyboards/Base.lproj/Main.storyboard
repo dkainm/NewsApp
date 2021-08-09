@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1004" y="124"/>
         </scene>
-        <!--View Controller-->
+        <!--Article Web View Controller-->
         <scene sceneID="jSC-5r-wtj">
             <objects>
-                <viewController id="TVc-nE-CCw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleWebViewController" id="TVc-nE-CCw" customClass="ArticleWebViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B1U-2H-tTr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,6 +82,9 @@
                             <constraint firstItem="Zix-Ft-vr5" firstAttribute="leading" secondItem="HQS-Wu-qg9" secondAttribute="leading" id="pKt-uR-NBv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="wkWebView" destination="Zix-Ft-vr5" id="KsM-Si-OI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXH-H0-hM6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

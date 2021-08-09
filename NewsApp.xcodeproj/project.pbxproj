@@ -22,6 +22,8 @@
 		FA743F1F26C14BFD00E0C626 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743F1D26C14BFD00E0C626 /* ArticleTableViewCell.swift */; };
 		FA743F2026C14BFD00E0C626 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA743F1E26C14BFD00E0C626 /* ArticleTableViewCell.xib */; };
 		FA743F2226C151DD00E0C626 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743F2126C151DD00E0C626 /* Extensions.swift */; };
+		FA743F2426C1764E00E0C626 /* ArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743F2326C1764D00E0C626 /* ArticleWebViewController.swift */; };
+		FA743F2626C1769600E0C626 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA743F2526C1769600E0C626 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		FA743F1D26C14BFD00E0C626 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		FA743F1E26C14BFD00E0C626 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		FA743F2126C151DD00E0C626 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FA743F2326C1764D00E0C626 /* ArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebViewController.swift; sourceTree = "<group>"; };
+		FA743F2526C1769600E0C626 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA743F2626C1769600E0C626 /* WebKit.framework in Frameworks */,
 				212ECFF6AE612331B094CCE3 /* Pods_NewsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +66,7 @@
 		7C1199D05FA32E7DC0F0C8A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA743F2526C1769600E0C626 /* WebKit.framework */,
 				421BAEDCF6D5096A0B846FB5 /* Pods_NewsApp.framework */,
 			);
 			name = Frameworks;
@@ -123,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				FA743EFD26C139B900E0C626 /* ArticlesViewController.swift */,
+				FA743F2326C1764D00E0C626 /* ArticleWebViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -287,6 +294,7 @@
 				FA743EFA26C139B900E0C626 /* AppDelegate.swift in Sources */,
 				FA743F1826C1486D00E0C626 /* RealmModels.swift in Sources */,
 				FA743EFC26C139B900E0C626 /* SceneDelegate.swift in Sources */,
+				FA743F2426C1764E00E0C626 /* ArticleWebViewController.swift in Sources */,
 				FA743F1626C143FB00E0C626 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

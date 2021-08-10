@@ -8,6 +8,7 @@
 import RealmSwift
  
 class ArticleObject: Object {
+    @objc dynamic var sourceName = ""
     @objc dynamic var author = ""
     @objc dynamic var title = ""
     @objc dynamic var desc = ""

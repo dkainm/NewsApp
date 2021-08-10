@@ -11,6 +11,7 @@ import WebKit
 class ArticleWebViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var wkWebView: WKWebView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     var urlString: String?
     
@@ -18,6 +19,7 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         wkWebView.navigationDelegate = self
+        wkWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         if let str = urlString {
             loadUrl(string: str)
         }
@@ -27,5 +29,16 @@ class ArticleWebViewController: UIViewController, WKNavigationDelegate {
         let url = URL(string: urlString)!
         wkWebView.load(URLRequest(url: url))
     }
+
+    //MARK: – WebView Observer
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            let progress = Float(wkWebView.estimatedProgress)
+            progressView.setProgress(progress, animated: true)
+            if progress == 1.0 {
+                progressView.isHidden = true
+            }
+        }
+    }
 }

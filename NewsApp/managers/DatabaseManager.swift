@@ -6,10 +6,11 @@
 //
 
 import RealmSwift
+import Realm
 
 class DatabaseManager {
     
-    let realm = try! Realm()
+    var realm = try! Realm()
     
     static var shared: DatabaseManager = {
         let instance = DatabaseManager()
@@ -23,10 +24,19 @@ class DatabaseManager {
     }
     
     func addArticle(_ article: ArticleObject) {
-        do {
-            try realm.write { realm.add(article) }
-        } catch {
-            print(error.localizedDescription)
+        var allowToSave = true
+        getArticles().forEach { object in
+            if article.url == object.url {
+                allowToSave = false
+            }
+        }
+        
+        if allowToSave {
+            do {
+                try realm.write { realm.add(article) }
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -35,6 +45,16 @@ class DatabaseManager {
             try realm.write { realm.delete(article) }
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func clearDatabase() {
+        getArticles().forEach { object in
+            do {
+                try realm.write { realm.delete(object) }
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     

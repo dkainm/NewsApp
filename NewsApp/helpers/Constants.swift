@@ -17,9 +17,11 @@ public func topViewController() -> UIViewController {
     return topController!
 }
 
-public func presentAlert(title: String, message: String? = nil, actionName: String? = "OK", complition: (() -> Void)? = nil) {
+public func presentAlert(title: String, message: String? = nil, actionName: String? = "OK", cancelAction: Bool? = true, complition: (() -> Void)? = nil) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    if cancelAction! {
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    }
     alert.addAction(UIAlertAction(title: actionName, style: .default, handler: { _ in
         complition?()
     }))

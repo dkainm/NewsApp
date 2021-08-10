@@ -14,15 +14,24 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var articleImageView: UIImageView!
     
     var author = ""
-    var title = ""
-    var desc = ""
+    var title = "" {
+        didSet {
+            self.titleLabel.text = self.title
+            self.titleLabel.backgroundColor = .clear
+        }
+    }
+    var desc = "" {
+        didSet {
+            self.descriptionLabel.text = self.desc
+            self.descriptionLabel.backgroundColor = .clear
+        }
+    }
     var url = ""
     var urlToImage = ""
     var publishedAt = ""
     var content = ""
     
     override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     func configure<T>(article: T) {
@@ -34,12 +43,6 @@ class ArticleTableViewCell: UITableViewCell {
             urlToImage = a.urlToImage
             publishedAt = a.publishedAt
             content = a.content
-            articleImageView.setDownloadedImage(from: a.urlToImage) {
-                self.titleLabel.text = self.title
-                self.titleLabel.backgroundColor = .clear
-                self.descriptionLabel.text = self.desc
-                self.descriptionLabel.backgroundColor = .clear
-            }
         } else if let a = article as? ArticleObject {
             author = a.author
             title = a.title
@@ -48,12 +51,6 @@ class ArticleTableViewCell: UITableViewCell {
             urlToImage = a.urlToImage
             publishedAt = a.publishedAt
             content = a.content
-            articleImageView.setDownloadedImage(from: a.urlToImage) {
-                self.titleLabel.text = self.title
-                self.titleLabel.backgroundColor = .clear
-                self.descriptionLabel.text = self.desc
-                self.descriptionLabel.backgroundColor = .clear
-            }
         }
     }
     

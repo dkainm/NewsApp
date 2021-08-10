@@ -60,7 +60,7 @@ class ApiManager {
             case .failure(let err):
                 DispatchQueue.main.async {
                     print(err)
-                    presentAlert(title: "Error", message: "\(err.localizedDescription)")
+                    presentAlert(title: "Found no articles about \(keyword)", cancelAction: false)
                 }
             }
         }

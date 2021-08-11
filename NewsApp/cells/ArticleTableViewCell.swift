@@ -12,8 +12,15 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
-    var author = ""
+    var author = "" {
+        didSet {
+            self.authorLabel.text = "Author: " + self.author
+            self.authorLabel.backgroundColor = .clear
+        }
+    }
     var title = "" {
         didSet {
             self.titleLabel.text = self.title
@@ -30,8 +37,11 @@ class ArticleTableViewCell: UITableViewCell {
     var urlToImage = ""
     var publishedAt = ""
     var content = ""
-    
-    override func awakeFromNib() {
+    var source = "" {
+        didSet {
+            self.sourceLabel.text = "Source: " + self.source
+            self.sourceLabel.backgroundColor = .clear
+        }
     }
     
     func configure<T>(article: T) {
@@ -43,6 +53,7 @@ class ArticleTableViewCell: UITableViewCell {
             urlToImage = a.urlToImage
             publishedAt = a.publishedAt
             content = a.content
+            source = a.source.name
         } else if let a = article as? ArticleObject {
             author = a.author
             title = a.title
@@ -51,6 +62,7 @@ class ArticleTableViewCell: UITableViewCell {
             urlToImage = a.urlToImage
             publishedAt = a.publishedAt
             content = a.content
+            source = a.sourceName
         }
     }
     

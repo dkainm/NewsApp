@@ -27,8 +27,6 @@ class ArticlesTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        tableView.estimatedRowHeight = 85
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "article")
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
@@ -72,13 +70,13 @@ class ArticlesTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 85
-//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 144
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !articles.isEmpty {
@@ -90,16 +88,20 @@ class ArticlesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let save = UIContextualAction(style: .normal, title: nil) { [weak self] (contexualAction, view, nil)  in
+        let save = UIContextualAction(style: .normal, title: nil) { [weak self] (contexualAction, view, complitionHandler)  in
             let article = self?.articles[indexPath.row]
             self?.saveArticle(article!)
+            complitionHandler(true)
         }
         save.image = UIGraphicsImageRenderer(size: CGSize(width: 30, height: 30)).image { _ in
             UIImage.saveIcon?.draw(in: CGRect(x: 0, y: 0, width: 30, height: 30))
         }
         save.backgroundColor = .secondaryGreen
         
-        return UISwipeActionsConfiguration(actions: [save])
+        let configuration = UISwipeActionsConfiguration(actions: [save])
+        configuration.performsFirstActionWithFullSwipe = true
+        
+        return configuration
     }
     
     private func saveArticle(_ article: Article) {

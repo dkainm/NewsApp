@@ -6,34 +6,21 @@
 //
 
 import UIKit
+import Nuke
 
-class ArticlesTableViewController: UITableViewController {
-    
-    let searchController = UISearchController(searchResultsController: nil)
+class ArticlesTableViewController: MainTableViewController {
     
     var keyword = "Apple"
-    var articles: [Article] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setup()
-        fetchData()
-    }
-    
-    private func setup() {
-        searchController.obscuresBackgroundDuringPresentation = false
+    override func setup() {
+        super.setup()
         searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        
-        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "article")
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    private func fetchData() {
+    override func fetchData() {
         setViewToLoad()
-        ApiManager.shared.getArticles(keyword: keyword, sources: nil, country: nil, category: nil) { [weak self] result in
+        ApiManager.shared.getArticlesByKeyword(keyword, sources: nil, country: nil, category: nil) { [weak self] result in
             self?.articles = result
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -53,6 +40,11 @@ class ArticlesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @IBAction func filterTapped(_ sender: UIBarButtonItem) {
+        let filterController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterTableViewController")
+        present(filterController, animated: true)
+    }
+    
     //MARK: – TableView Delegate & Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,21 +53,12 @@ class ArticlesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "article", for: indexPath) as! ArticleTableViewCell
-        var article: Any = ""
         if articles.count - 1 > indexPath.row {
-            article = articles[indexPath.row]
-            cell.articleImageView.setDownloadedImage(from: (article as! Article).urlToImage)
-            cell.configure(article: article)
+            let currentArticle = articles[indexPath.row]
+            Nuke.loadImage(with: URL(string: currentArticle.urlToImage)!, options: nukeOptions, into: cell.articleImageView)
+            cell.configure(article: currentArticle)
         }
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 144
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

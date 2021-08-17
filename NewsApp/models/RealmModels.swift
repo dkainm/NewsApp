@@ -16,4 +16,15 @@ class ArticleObject: Object {
     @objc dynamic var urlToImage = ""
     @objc dynamic var publishedAt = ""
     @objc dynamic var content = ""
+    
+    func toArticle() -> Article {
+        return Article(source: ArticleSource(id: nil, name: sourceName),
+                       author: author,
+                       title: title,
+                       desc: desc,
+                       url: url,
+                       urlToImage: urlToImage,
+                       publishedAt: publishedAt,
+                       content: content)
+    }
 }

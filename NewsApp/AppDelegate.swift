@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DatabaseManager.shared.clearDatabase()
         
+        setUserDefaults()
+        
         return true
     }
 

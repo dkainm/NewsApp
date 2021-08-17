@@ -40,9 +40,10 @@ class DatabaseManager {
         }
     }
     
-    func deleteArticle(_ article: ArticleObject) {
+    func deleteArticle(_ article: Article) {
+        guard let objectToDelete = findElement(article) else { return }
         do {
-            try realm.write { realm.delete(article) }
+            try realm.write { realm.delete(objectToDelete) }
         } catch {
             print(error.localizedDescription)
         }
@@ -58,4 +59,21 @@ class DatabaseManager {
         }
     }
     
+    private func findElement(_ element: Article) -> ArticleObject? {
+        var object: ArticleObject?
+        getArticles().forEach { articleObject in
+            if articleObject.url == element.url {
+                object = articleObject
+            }
+        }
+        return object
+    }
 }
+
+extension Results {
+    func toArray() -> [Element] {
+      return compactMap {
+        $0
+      }
+    }
+ }

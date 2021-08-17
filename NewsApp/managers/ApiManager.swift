@@ -28,15 +28,24 @@ class ApiManager {
         case publishedAt = "publishedAt"
     }
     
-    func getArticles(keyword: String, sources: [String]?, country: String?, category: ArticleCategory?, complition: @escaping articlesComplition) {
+    func getArticlesByKeyword(_ keyword: String?, sources: [String]?, country: String?, category: ArticleCategory?, complition: @escaping articlesComplition) {
         
-        let url = mainUrl + "everything"
+        let url: String
+        
+        switch keyword {
+        case nil:
+            url = mainUrl + "top-headlines"
+        default:
+            url = mainUrl + "everything"
+        }
         
         var params: [String: Any] = [
-            "apiKey": apiKey,
-            "q": keyword
+            "apiKey": apiKey
         ]
         
+        if keyword != nil {
+            params["q"] = keyword
+        }
         if sources != nil {
             params["sources"] = getSourcesString(sources!)
         }

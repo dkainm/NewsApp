@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - Nuke (9.5.0)
   - Realm (10.12.0):
     - Realm/Headers (= 10.12.0)
   - Realm/Headers (10.12.0)
@@ -9,22 +10,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Nuke
   - RealmSwift
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Nuke
     - Realm
     - RealmSwift
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
   Realm: 32488213acb44660539c619d620cec1bac046166
   RealmSwift: 0abdca6231d5ff8a4f84cef9c1121ef95a483faf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8e8f2895303a16f749abdf8768994589430e5c13
+PODFILE CHECKSUM: dbb2460ff5a1cd1f975a005a5ad8101be53a2e5c
 
 COCOAPODS: 1.10.0

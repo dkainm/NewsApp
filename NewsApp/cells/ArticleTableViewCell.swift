@@ -9,61 +9,60 @@ import UIKit
 
 class ArticleTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet weak var articleImageView: UIImageView!
-    @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet private weak var sourceLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
     
-    var author = "" {
+    private var author = "" {
         didSet {
             self.authorLabel.text = "Author: " + self.author
             self.authorLabel.backgroundColor = .clear
         }
     }
-    var title = "" {
+    private var title = "" {
         didSet {
             self.titleLabel.text = self.title
             self.titleLabel.backgroundColor = .clear
         }
     }
-    var desc = "" {
+    private var desc = "" {
         didSet {
             self.descriptionLabel.text = self.desc
             self.descriptionLabel.backgroundColor = .clear
         }
     }
-    var url = ""
-    var urlToImage = ""
-    var publishedAt = ""
-    var content = ""
-    var source = "" {
+    private var url = ""
+    private var urlToImage = ""
+    private var publishedAt = ""
+    private var content = ""
+    private var source = "" {
         didSet {
             self.sourceLabel.text = "Source: " + self.source
             self.sourceLabel.backgroundColor = .clear
         }
     }
     
-    func configure<T>(article: T) {
-        if let a = article as? Article {
-            author = a.author
-            title = a.title
-            desc = a.desc
-            url = a.url
-            urlToImage = a.urlToImage
-            publishedAt = a.publishedAt
-            content = a.content
-            source = a.source.name
-        } else if let a = article as? ArticleObject {
-            author = a.author
-            title = a.title
-            desc = a.desc
-            url = a.url
-            urlToImage = a.urlToImage
-            publishedAt = a.publishedAt
-            content = a.content
-            source = a.sourceName
-        }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = ""
+        descriptionLabel.text = ""
+        articleImageView.image = nil
+        sourceLabel.text = ""
+        authorLabel.text = ""
+    }
+    
+    func configure(article: Article?) {
+        guard let article = article else { return }
+        author = article.author
+        title = article.title
+        desc = article.desc
+        url = article.url
+        urlToImage = article.urlToImage
+        publishedAt = article.publishedAt
+        content = article.content
+        source = article.source.name
     }
     
 }

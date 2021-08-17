@@ -10,5 +10,6 @@ target 'NewsApp' do
 	pod 'RealmSwift'
 	pod 'Alamofire'
 	pod 'SVProgressHUD'
+	pod 'Nuke'
 
 end

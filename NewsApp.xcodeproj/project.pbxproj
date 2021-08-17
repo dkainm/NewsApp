@@ -26,6 +26,9 @@
 		FA743F2626C1769600E0C626 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA743F2526C1769600E0C626 /* WebKit.framework */; };
 		FA9628C926C302A100785AFB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9628C826C302A100785AFB /* MainTabBarController.swift */; };
 		FA9628CD26C3064600785AFB /* SavedArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9628CC26C3064600785AFB /* SavedArticlesTableViewController.swift */; };
+		FAC7DEE926C5116C007862CE /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7DEE826C5116C007862CE /* FilterTableViewController.swift */; };
+		FAC7DEEE26C51A68007862CE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7DEED26C51A68007862CE /* Keys.swift */; };
+		FAC7DF0126C6D1F9007862CE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7DF0026C6D1F8007862CE /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		FA743F2526C1769600E0C626 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FA9628C826C302A100785AFB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FA9628CC26C3064600785AFB /* SavedArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticlesTableViewController.swift; sourceTree = "<group>"; };
+		FAC7DEE826C5116C007862CE /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		FAC7DEED26C51A68007862CE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		FAC7DF0026C6D1F8007862CE /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				FA9628C826C302A100785AFB /* MainTabBarController.swift */,
+				FAC7DF0026C6D1F8007862CE /* MainTableViewController.swift */,
 				FA743EFD26C139B900E0C626 /* ArticlesViewController.swift */,
 				FA743F2326C1764D00E0C626 /* ArticleWebViewController.swift */,
 				FA9628CC26C3064600785AFB /* SavedArticlesTableViewController.swift */,
+				FAC7DEE826C5116C007862CE /* FilterTableViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			children = (
 				FA743F2126C151DD00E0C626 /* Extensions.swift */,
 				FA743F1526C143FB00E0C626 /* Constants.swift */,
+				FAC7DEED26C51A68007862CE /* Keys.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -295,6 +304,8 @@
 				FA743F1F26C14BFD00E0C626 /* ArticleTableViewCell.swift in Sources */,
 				FA9628C926C302A100785AFB /* MainTabBarController.swift in Sources */,
 				FA743F1426C13F5000E0C626 /* NetworkModels.swift in Sources */,
+				FAC7DEEE26C51A68007862CE /* Keys.swift in Sources */,
+				FAC7DF0126C6D1F9007862CE /* MainTableViewController.swift in Sources */,
 				FA9628CD26C3064600785AFB /* SavedArticlesTableViewController.swift in Sources */,
 				FA743F1126C13C8E00E0C626 /* ApiManager.swift in Sources */,
 				FA743EFE26C139B900E0C626 /* ArticlesViewController.swift in Sources */,
@@ -302,6 +313,7 @@
 				FA743EFA26C139B900E0C626 /* AppDelegate.swift in Sources */,
 				FA743F1826C1486D00E0C626 /* RealmModels.swift in Sources */,
 				FA743EFC26C139B900E0C626 /* SceneDelegate.swift in Sources */,
+				FAC7DEE926C5116C007862CE /* FilterTableViewController.swift in Sources */,
 				FA743F2426C1764E00E0C626 /* ArticleWebViewController.swift in Sources */,
 				FA743F1626C143FB00E0C626 /* Constants.swift in Sources */,
 			);
